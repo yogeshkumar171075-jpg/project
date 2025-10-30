@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARENA LOGS // Surveillance Feed Active</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tactical Map Overlay Background -->
+    <div class="tactical-overlay">
+        <div class="radar-sweep"></div>
+        <div class="grid-lines"></div>
+        <div class="screen-scan-line"></div>
+    </div>
+
+    <!-- Surveillance Indicator -->
+    <div class="surveillance-indicator">
+        <span class="blink-dot"></span>
+        <span class="indicator-text">SURVEILLANCE ONLINE</span>
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ARENA LOGS</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="./index.html" class="nav-link active" data-page="index">HOME</a></li>
+                <li class="nav-item"><a href="./battlelogs.html" class="nav-link" data-page="battlelogs">BATTLE LOGS</a></li>
+                <li class="nav-item"><a href="./team.html" class="nav-link" data-page="team">TEAM</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-page="about">ABOUT</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link" data-page="contact">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Battle Detail Modal -->
+    <div class="modal-overlay" id="battleModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">BATTLE REPLAY</h2>
+                <button class="modal-close" id="closeModal">✕</button>
+            </div>
+            <div class="modal-content">
+                <div class="modal-video-section">
+                    <div class="modal-video-frame">
+                        <div class="video-overlay">
+                            <div class="tactical-hud">
+                                <div class="hud-corner tl"></div>
+                                <div class="hud-corner tr"></div>
+                                <div class="hud-corner bl"></div>
+                                <div class="hud-corner br"></div>
+                                <div class="crosshair"></div>
+                                <div class="scan-line"></div>
+                            </div>
+                        </div>
+                        <div class="modal-video-placeholder">
+                            <div class="play-overlay" id="startReplay">
+                                <div class="play-icon-large">▶</div>
+                                <div class="play-text">START REPLAY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-stats-section">
+                    <h3 class="stats-title">BATTLE STATISTICS</h3>
+                    <div class="stats-grid" id="modalStats">
+                        <!-- Stats will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="replays">
+                <span class="tab-icon">▶</span>
+                REPLAYS
+            </button>
+            <button class="nav-tab" data-tab="history">
+                <span class="tab-icon">⚔</span>
+                HISTORY
+            </button>
+            <button class="nav-tab" data-tab="stats">
+                <span class="tab-icon">📊</span>
+                STATS
+            </button>
+        </nav>
+
+        <!-- Hero Header -->
+        <header class="hero-header">
+            <div class="glitch-wrapper">
+                <h1 class="hero-title glitch" data-text="ARENA LOGS">ARENA LOGS</h1>
+            </div>
+            <div class="subtitle">
+                <span class="terminal-prompt">&gt;&gt;</span>
+                <span class="typing-text">Surveillance Feed Active // Classified Access Level: OMEGA</span>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-label">ACTIVE FEEDS</span>
+                    <span class="stat-value" id="activeFeeds">247</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">THREAT LEVEL</span>
+                    <span class="stat-value threat-high">CRITICAL</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">SYSTEM STATUS</span>
+                    <span class="stat-value status-online">ONLINE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <div class="tab-content active" id="replays-content">
+        <div class="dashboard-grid">
+            <!-- Replay Mode Panel -->
+            <section class="panel replay-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <span class="icon">▶</span>
+                        REPLAY MODE
+                    </h2>
+                    <span class="panel-badge">LIVE</span>
+                </div>
+                <div class="panel-content">
+                    <div class="video-container">
+                        <div class="video-frame">
+                            <div class="video-overlay">
+                                <div class="tactical-hud">
+                                    <div class="hud-corner tl"></div>
+                                    <div class="hud-corner tr"></div>
+                                    <div class="hud-corner bl"></div>
+                                    <div class="hud-corner br"></div>
+                                    <div class="crosshair"></div>
+                                    <div class="scan-line"></div>
+                                </div>
+                                <div class="video-info">
+                                    <span class="timestamp">REC 23:47:12</span>
+                                    <span class="location">SECTOR-7 // ARENA-ALPHA</span>
+                                </div>
+                            </div>
+                            <video id="replayVideo" class="replay-video" loop muted>
+                                <source src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-controls">
+                            <button class="control-btn" id="prevReplay" title="Previous Replay">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="19 3 9 12 19 21 19 3"></polygon>
+                                    <rect x="5" y="3" width="2" height="18"></rect>
+                                </svg>
+                            </button>
+                            <button class="control-btn play-btn" id="playPauseBtn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                            </button>
+                            <button class="control-btn" id="nextReplay" title="Next Replay">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 15 12 5 21 5 3"></polygon>
+                                    <rect x="17" y="3" width="2" height="18"></rect>
+                                </svg>
+                            </button>
+                            <div class="timeline" id="videoTimeline">
+                                <div class="timeline-progress" id="timelineProgress"></div>
+                                <div class="timeline-marker" id="timelineMarker"></div>
+                            </div>
+                            <span class="time-display" id="timeDisplay">00:00 / 00:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="replay-list" id="replayList">
+                        <!-- Replay items will be generated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Battle History Section -->
+            <section class="panel history-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <span class="icon">⚔</span>
+                        BATTLE HISTORY
+                    </h2>
+                    <span class="panel-badge">ARCHIVED</span>
+                </div>
+                <div class="panel-content">
+                    <div class="battle-cards" id="battleHistory">
+                        <!-- Battle cards will be generated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar Module -->
+            <section class="panel calendar-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <span class="icon">📅</span>
+                        UPCOMING MATCHES
+                    </h2>
+                    <span class="panel-badge">SCHEDULED</span>
+                </div>
+                <div class="panel-content">
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- Calendar items will be generated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notoriety Meter -->
+            <section class="panel notoriety-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        <span class="icon">👁</span>
+                        NOTORIETY METER
+                    </h2>
+                    <span class="panel-badge">TRACKING</span>
+                </div>
+                <div class="panel-content">
+                    <div class="notoriety-display">
+                        <div class="circular-meter" data-tooltip="Authority Monitoring Level">
+                            <svg class="meter-svg" viewBox="0 0 200 200">
+                                <circle class="meter-bg" cx="100" cy="100" r="85"></circle>
+                                <circle class="meter-progress" cx="100" cy="100" r="85" id="notorietyCircle"></circle>
+                            </svg>
+                            <div class="meter-center">
+                                <div class="meter-value" id="notorietyValue">0</div>
+                                <div class="meter-label">THREAT</div>
+                            </div>
+                            <div class="tooltip">Authority Monitoring Level</div>
+                        </div>
+                        <div class="notoriety-info">
+                            <div class="info-row">
+                                <span class="info-label">Authority Status:</span>
+                                <span class="info-value" id="authorityStatus">MONITORING</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Heat Level:</span>
+                                <span class="info-value" id="heatLevel">MODERATE</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Bounty:</span>
+                                <span class="info-value" id="bountyAmount">₡ 45,000</span>
+                            </div>
+                        </div>
+                        <div class="horizontal-meter">
+                            <div class="h-meter-label">DETECTION RISK</div>
+                            <div class="h-meter-bar">
+                                <div class="h-meter-fill" id="detectionBar"></div>
+                                <div class="h-meter-segments">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="h-meter-value" id="detectionValue">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+
+        <!-- History Tab Content -->
+        <div class="tab-content" id="history-content">
+            <div class="dashboard-grid">
+                <section class="panel history-panel" style="grid-column: span 2;">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="icon">⚔</span>
+                            COMPLETE BATTLE ARCHIVE
+                        </h2>
+                        <span class="panel-badge">ARCHIVED</span>
+                    </div>
+                    <div class="panel-content">
+                        <div class="battle-cards" id="battleHistoryFull">
+                            <!-- Extended battle history -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Stats Tab Content -->
+        <div class="tab-content" id="stats-content">
+            <div class="dashboard-grid">
+                <section class="panel stats-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="icon">📊</span>
+                            PERFORMANCE METRICS
+                        </h2>
+                        <span class="panel-badge">ANALYTICS</span>
+                    </div>
+                    <div class="panel-content">
+                        <div class="stats-overview" id="statsOverview">
+                            <!-- Stats will be generated by JS -->
+                        </div>
+                    </div>
+                </section>
+                <section class="panel stats-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="icon">🎯</span>
+                            WIN RATE ANALYSIS
+                        </h2>
+                        <span class="panel-badge">LIVE</span>
+                    </div>
+                    <div class="panel-content">
+                        <div class="win-rate-chart" id="winRateChart">
+                            <!-- Chart will be generated by JS -->
+                        </div>
+                    </div>
+                </section>
+                <section class="panel stats-panel" style="grid-column: span 2;">
+                    <div class="panel-header">
+                        <h2 class="panel-title">
+                            <span class="icon">👥</span>
+                            REGISTERED TEAMS
+                        </h2>
+                        <span class="panel-badge">ACTIVE</span>
+                    </div>
+                    <div class="panel-content">
+                        <div class="teams-grid" id="teamsGrid">
+                            <!-- Teams will be generated by JS -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="terminal-footer">
+            <div class="footer-line">
+                <span class="terminal-prompt">&gt;&gt;</span>
+                <span>System Uptime: <span id="uptime">00:00:00</span></span>
+                <span class="separator">|</span>
+                <span>Encrypted Connection: <span class="status-online">SECURE</span></span>
+                <span class="separator">|</span>
+                <span>Neural Link: <span class="status-online">STABLE</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Authority Warning Overlay -->
+    <div class="authority-warning" id="authorityWarning">
+        <div class="warning-content">
+            <div class="warning-icon">⚠</div>
+            <div class="warning-text">THE AUTHORITY IS WATCHING</div>
+            <div class="warning-subtext">THREAT LEVEL: CRITICAL</div>
+        </div>
+    </div>
+
+    <!-- Team Stats Modal -->
+    <div class="modal-overlay" id="teamModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">TEAM PROFILE</h2>
+                <button class="modal-close" id="closeTeamModal">✕</button>
+            </div>
+            <div class="modal-content" id="teamModalContent">
+                <!-- Team stats will be populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

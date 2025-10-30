@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ARENA LOGS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tactical Map Overlay Background -->
+    <div class="tactical-overlay">
+        <div class="radar-sweep"></div>
+        <div class="grid-lines"></div>
+        <div class="screen-scan-line"></div>
+        <div class="particle-container" id="particles"></div>
+    </div>
+
+    <!-- Surveillance Indicator -->
+    <div class="surveillance-indicator">
+        <span class="blink-dot"></span>
+        <span class="indicator-text">SURVEILLANCE ONLINE</span>
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ARENA LOGS</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="./index.html" class="nav-link" data-page="index">HOME</a></li>
+                <li class="nav-item"><a href="./battlelogs.html" class="nav-link" data-page="battlelogs">BATTLE LOGS</a></li>
+                <li class="nav-item"><a href="./team.html" class="nav-link" data-page="team">TEAM</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link active" data-page="about">ABOUT</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link" data-page="contact">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title typing-text" data-text="PROJECT INFORMATION">PROJECT INFORMATION</h1>
+            <p class="page-subtitle">// Arena Logs - Cyberpunk Tournament Dashboard //</p>
+        </header>
+
+        <!-- Project Description -->
+        <section class="about-section">
+            <h2 class="section-title">Mission Objective</h2>
+            <p class="section-text">
+                Arena Logs is a fully functional cyberpunk tournament dashboard designed to track esports matches, 
+                team statistics, and replay analysis. Built with cutting-edge web technologies, it features real-time 
+                data visualization, interactive video playback, and comprehensive match analytics in a stunning neon-themed interface.
+            </p>
+        </section>
+
+        <!-- Technologies Used -->
+        <section class="about-section">
+            <h2 class="section-title">Technologies Deployed</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">🌐</div>
+                    <h3 class="tech-name">HTML5</h3>
+                    <p class="tech-desc">Semantic markup & structure</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🎨</div>
+                    <h3 class="tech-name">CSS3</h3>
+                    <p class="tech-desc">Advanced animations & styling</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">⚡</div>
+                    <h3 class="tech-name">JavaScript</h3>
+                    <p class="tech-desc">ES6+ dynamic functionality</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">🔊</div>
+                    <h3 class="tech-name">Web Audio API</h3>
+                    <p class="tech-desc">Ambient sound system</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">💾</div>
+                    <h3 class="tech-name">LocalStorage</h3>
+                    <p class="tech-desc">Data persistence</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">📱</div>
+                    <h3 class="tech-name">Responsive Design</h3>
+                    <p class="tech-desc">Mobile-first approach</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Progress -->
+        <section class="about-section">
+            <h2 class="section-title">Development Progress</h2>
+            <div class="progress-container">
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Frontend Development</span>
+                        <span class="progress-percent">100%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>UI/UX Design</span>
+                        <span class="progress-percent">100%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Animations & Effects</span>
+                        <span class="progress-percent">95%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Data Integration</span>
+                        <span class="progress-percent">90%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">
+                        <span>Testing & Optimization</span>
+                        <span class="progress-percent">85%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="about-section">
+            <h2 class="section-title">Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🎬</span>
+                    <span class="feature-text">Video Replay System</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⏱️</span>
+                    <span class="feature-text">Live Countdown Timers</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">👥</span>
+                    <span class="feature-text">Team Statistics</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-text">Match Analytics</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔔</span>
+                    <span class="feature-text">Authority Warnings</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎵</span>
+                    <span class="feature-text">Ambient Sound System</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+</body>
+</html>

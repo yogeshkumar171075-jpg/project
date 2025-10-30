@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "SHADOW SYNDICATE",
+    "logo": "assets/team-shadow.png",
+    "rank": 1,
+    "wins": 45,
+    "losses": 15,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 75,
+    "region": "NORTH SECTOR",
+    "captain": "SHADOW-7",
+    "founded": "2023-08-15",
+    "members": ["SHADOW-1", "SHADOW-2", "SHADOW-3", "SHADOW-7", "SHADOW-9"],
+    "topPlayers": [
+      {"name": "SHADOW-7", "kd": 2.4, "role": "Captain"},
+      {"name": "SHADOW-2", "kd": 2.1, "role": "Assault"},
+      {"name": "SHADOW-9", "kd": 1.8, "role": "Support"}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "NEON REAPERS",
+    "logo": "assets/team-neon.png",
+    "rank": 2,
+    "wins": 41,
+    "losses": 19,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 68,
+    "region": "EAST SECTOR",
+    "captain": "REAPER-X",
+    "founded": "2023-09-22",
+    "members": ["REAPER-1", "REAPER-5", "REAPER-X", "REAPER-9", "REAPER-12"],
+    "topPlayers": [
+      {"name": "REAPER-X", "kd": 2.2, "role": "Captain"},
+      {"name": "REAPER-5", "kd": 1.9, "role": "Sniper"},
+      {"name": "REAPER-12", "kd": 1.7, "role": "Scout"}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "CYBER WOLVES",
+    "logo": "assets/team-cyber.png",
+    "rank": 3,
+    "wins": 39,
+    "losses": 21,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 65,
+    "region": "WEST SECTOR",
+    "captain": "CYBER-3",
+    "founded": "2023-07-10",
+    "members": ["CYBER-1", "CYBER-3", "CYBER-6", "CYBER-8", "CYBER-11"],
+    "topPlayers": [
+      {"name": "CYBER-3", "kd": 2.0, "role": "Captain"},
+      {"name": "CYBER-8", "kd": 1.8, "role": "Heavy"},
+      {"name": "CYBER-6", "kd": 1.6, "role": "Medic"}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "VOID RUNNERS",
+    "logo": "assets/team-void.png",
+    "rank": 4,
+    "wins": 35,
+    "losses": 25,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 58,
+    "region": "SOUTH SECTOR",
+    "captain": "VOID-4",
+    "founded": "2023-10-05",
+    "members": ["VOID-2", "VOID-4", "VOID-7", "VOID-10", "VOID-13"],
+    "topPlayers": [
+      {"name": "VOID-4", "kd": 1.9, "role": "Captain"},
+      {"name": "VOID-7", "kd": 1.7, "role": "Infiltrator"},
+      {"name": "VOID-13", "kd": 1.5, "role": "Engineer"}
+    ]
+  },
+  {
+    "id": 5,
+    "name": "GHOST PROTOCOL",
+    "logo": "assets/team-ghost.png",
+    "rank": 5,
+    "wins": 33,
+    "losses": 27,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 55,
+    "region": "CENTRAL SECTOR",
+    "captain": "GHOST-1",
+    "founded": "2023-11-12",
+    "members": ["GHOST-1", "GHOST-3", "GHOST-5", "GHOST-8", "GHOST-14"],
+    "topPlayers": [
+      {"name": "GHOST-1", "kd": 1.8, "role": "Captain"},
+      {"name": "GHOST-5", "kd": 1.6, "role": "Recon"},
+      {"name": "GHOST-8", "kd": 1.4, "role": "Defender"}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "DIGITAL PHANTOMS",
+    "logo": "assets/team-phantom.png",
+    "rank": 6,
+    "wins": 31,
+    "losses": 29,
+    "draws": 0,
+    "totalMatches": 60,
+    "winRate": 52,
+    "region": "NORTH SECTOR",
+    "captain": "PHANTOM-1",
+    "founded": "2024-01-20",
+    "members": ["PHANTOM-1", "PHANTOM-4", "PHANTOM-6", "PHANTOM-9", "PHANTOM-15"],
+    "topPlayers": [
+      {"name": "PHANTOM-1", "kd": 1.7, "role": "Captain"},
+      {"name": "PHANTOM-6", "kd": 1.5, "role": "Hacker"},
+      {"name": "PHANTOM-9", "kd": 1.3, "role": "Tactician"}
+    ]
+  }
+]

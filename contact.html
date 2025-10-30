@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ARENA LOGS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tactical Map Overlay Background -->
+    <div class="tactical-overlay">
+        <div class="radar-sweep"></div>
+        <div class="grid-lines"></div>
+        <div class="screen-scan-line"></div>
+        <div class="particle-container" id="particles"></div>
+    </div>
+
+    <!-- Surveillance Indicator -->
+    <div class="surveillance-indicator">
+        <span class="blink-dot"></span>
+        <span class="indicator-text">SURVEILLANCE ONLINE</span>
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ARENA LOGS</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="./index.html" class="nav-link" data-page="index">HOME</a></li>
+                <li class="nav-item"><a href="./battlelogs.html" class="nav-link" data-page="battlelogs">BATTLE LOGS</a></li>
+                <li class="nav-item"><a href="./team.html" class="nav-link" data-page="team">TEAM</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-page="about">ABOUT</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link active" data-page="contact">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title typing-text" data-text="SECURE COMMUNICATION">SECURE COMMUNICATION</h1>
+            <p class="page-subtitle">// Encrypted Channel - Clearance Required //</p>
+        </header>
+
+        <!-- Contact Form -->
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">OPERATIVE NAME</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                    <span class="form-error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">SECURE EMAIL</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                    <span class="form-error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject" class="form-label">TRANSMISSION SUBJECT</label>
+                    <input type="text" id="subject" name="subject" class="form-input" required>
+                    <span class="form-error" id="subjectError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">ENCRYPTED MESSAGE</label>
+                    <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                    <span class="form-error" id="messageError"></span>
+                </div>
+
+                <button type="submit" class="form-submit">
+                    <span class="submit-text">TRANSMIT MESSAGE</span>
+                    <span class="submit-icon">📡</span>
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✓</div>
+                <h3 class="success-title">MESSAGE TRANSMITTED</h3>
+                <p class="success-text">Your secure communication has been received and encrypted.</p>
+                <p class="success-subtext">Response time: 24-48 hours</p>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info-grid">
+            <div class="info-card">
+                <div class="info-icon">📧</div>
+                <h3 class="info-title">Email</h3>
+                <p class="info-text">arena.logs@classified.net</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🌐</div>
+                <h3 class="info-title">Location</h3>
+                <p class="info-text">Sector-7, Neo Tokyo</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">⏰</div>
+                <h3 class="info-title">Response Time</h3>
+                <p class="info-text">24-48 Hours</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

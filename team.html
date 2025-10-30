@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - ARENA LOGS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tactical Map Overlay Background -->
+    <div class="tactical-overlay">
+        <div class="radar-sweep"></div>
+        <div class="grid-lines"></div>
+        <div class="screen-scan-line"></div>
+        <div class="particle-container" id="particles"></div>
+    </div>
+
+    <!-- Surveillance Indicator -->
+    <div class="surveillance-indicator">
+        <span class="blink-dot"></span>
+        <span class="indicator-text">SURVEILLANCE ONLINE</span>
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ARENA LOGS</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="./index.html" class="nav-link" data-page="index">HOME</a></li>
+                <li class="nav-item"><a href="./battlelogs.html" class="nav-link" data-page="battlelogs">BATTLE LOGS</a></li>
+                <li class="nav-item"><a href="./team.html" class="nav-link active" data-page="team">TEAM</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-page="about">ABOUT</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link" data-page="contact">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title typing-text" data-text="DEVELOPMENT TEAM">DEVELOPMENT TEAM</h1>
+            <p class="page-subtitle">// Core Contributors - Project Arena Logs //</p>
+        </header>
+
+        <!-- Team Members Grid -->
+        <div class="team-members-grid">
+            <div class="team-member-card" data-member="yogesh">
+                <div class="member-avatar-container">
+                    <div class="member-avatar">YK</div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="member-name">Yogesh Kumar</h3>
+                <p class="member-id">ID: 2427030798</p>
+                <p class="member-role">Lead Developer</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Frontend</span>
+                    <span class="skill-tag">Backend</span>
+                    <span class="skill-tag">UI/UX</span>
+                </div>
+                <div class="member-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Commits</span>
+                        <span class="stat-value">247</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Code Reviews</span>
+                        <span class="stat-value">89</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member-card" data-member="hemant">
+                <div class="member-avatar-container">
+                    <div class="member-avatar">HM</div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="member-name">Hemant Mahala</h3>
+                <p class="member-id">ID: 2427030803</p>
+                <p class="member-role">Full Stack Developer</p>
+                <div class="member-skills">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">APIs</span>
+                    <span class="skill-tag">Database</span>
+                </div>
+                <div class="member-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Commits</span>
+                        <span class="stat-value">198</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Code Reviews</span>
+                        <span class="stat-value">76</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member-card" data-member="yash">
+                <div class="member-avatar-container">
+                    <div class="member-avatar">YS</div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="member-name">Yash Singh</h3>
+                <p class="member-id">ID: 2427030760</p>
+                <p class="member-role">Frontend Specialist</p>
+                <div class="member-skills">
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">Animations</span>
+                    <span class="skill-tag">Design</span>
+                </div>
+                <div class="member-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Commits</span>
+                        <span class="stat-value">156</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Code Reviews</span>
+                        <span class="stat-value">62</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member-card" data-member="priyanshu">
+                <div class="member-avatar-container">
+                    <div class="member-avatar">PP</div>
+                    <div class="avatar-glow"></div>
+                </div>
+                <h3 class="member-name">Priyanshu Patro</h3>
+                <p class="member-id">ID: 2427030735</p>
+                <p class="member-role">Backend Engineer</p>
+                <div class="member-skills">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Security</span>
+                    <span class="skill-tag">Testing</span>
+                </div>
+                <div class="member-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Commits</span>
+                        <span class="stat-value">183</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Code Reviews</span>
+                        <span class="stat-value">71</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="team.js"></script>
+</body>
+</html>

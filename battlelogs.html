@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Logs - ARENA LOGS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tactical Map Overlay Background -->
+    <div class="tactical-overlay">
+        <div class="radar-sweep"></div>
+        <div class="grid-lines"></div>
+        <div class="screen-scan-line"></div>
+        <div class="particle-container" id="particles"></div>
+    </div>
+
+    <!-- Surveillance Indicator -->
+    <div class="surveillance-indicator">
+        <span class="blink-dot"></span>
+        <span class="indicator-text">SURVEILLANCE ONLINE</span>
+    </div>
+
+    <!-- Sound Toggle -->
+    <div class="sound-toggle" id="soundToggle">
+        <svg class="sound-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ARENA LOGS</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="./index.html" class="nav-link" data-page="index">HOME</a></li>
+                <li class="nav-item"><a href="./battlelogs.html" class="nav-link active" data-page="battlelogs">BATTLE LOGS</a></li>
+                <li class="nav-item"><a href="./team.html" class="nav-link" data-page="team">TEAM</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link" data-page="about">ABOUT</a></li>
+                <li class="nav-item"><a href="./contact.html" class="nav-link" data-page="contact">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 class="page-title typing-text" data-text="BATTLE LOGS DATABASE">BATTLE LOGS DATABASE</h1>
+            <p class="page-subtitle">// Classified Combat Records - Access Level: OMEGA //</p>
+        </header>
+
+        <!-- Notoriety Meter -->
+        <div class="notoriety-section">
+            <div class="notoriety-label">AUTHORITY ATTENTION LEVEL</div>
+            <div class="notoriety-bar-container">
+                <div class="notoriety-bar" id="notorietyBar">
+                    <div class="notoriety-fill" id="notorietyFill"></div>
+                    <div class="notoriety-marker"></div>
+                </div>
+                <div class="notoriety-value" id="notorietyValue">0%</div>
+            </div>
+            <div class="notoriety-warning" id="notorietyWarning">
+                ⚠️ HIGH ALERT - AUTHORITY IS WATCHING
+            </div>
+        </div>
+
+        <!-- Search and Filter Bar -->
+        <div class="filter-bar">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search battles...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="victory">VICTORY</button>
+                <button class="filter-btn" data-filter="defeat">DEFEAT</button>
+                <button class="filter-btn" data-filter="draw">DRAW</button>
+            </div>
+        </div>
+
+        <!-- Battle Cards Grid -->
+        <div class="battle-grid" id="battleGrid">
+            <!-- Battle cards will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Battle Detail Modal -->
+    <div class="modal-overlay" id="battleModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">BATTLE DETAILS</h2>
+                <button class="modal-close" id="closeModal">✕</button>
+            </div>
+            <div class="modal-content" id="modalContent">
+                <!-- Modal content will be populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="battlelogs.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "arena-logs",
+  "version": "1.0.0",
+  "description": "Cyberpunk Tournament Dashboard - A fully functional esports tracking system",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "dev": "npx serve -l 8080",
+    "build": "echo 'No build step required - static site'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "esports",
+    "tournament",
+    "dashboard",
+    "cyberpunk",
+    "gaming",
+    "arena",
+    "replay",
+    "statistics"
+  ],
+  "authors": [
+    {
+      "name": "Yogesh Kumar",
+      "id": "2427030798"
+    },
+    {
+      "name": "Hemant Mahala",
+      "id": "2427030803"
+    },
+    {
+      "name": "Yash Singh",
+      "id": "2427030760"
+    },
+    {
+      "name": "Priyanshu Patro",
+      "id": "2427030735"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/arena-logs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/arena-logs/issues"
+  },
+  "homepage": "https://github.com/yourusername/arena-logs#readme",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

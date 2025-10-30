@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARENA LOGS - Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+            --neon-purple: #9d00ff;
+            --dark-bg: #0a0a0f;
+            --panel-bg: #12121a;
+            --border-color: #1a1a2e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #8a8a9f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .splash-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(0, 255, 255, 0.05), transparent 70%),
+                        radial-gradient(ellipse at 80% 20%, rgba(255, 0, 255, 0.05), transparent 70%);
+            animation: bgPulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .splash-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+        }
+
+        .splash-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+            margin-bottom: 20px;
+            animation: titleGlow 2s ease-in-out infinite, titleFloat 3s ease-in-out infinite;
+            letter-spacing: 8px;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan); }
+            50% { text-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan), 0 0 80px var(--neon-magenta); }
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .splash-subtitle {
+            font-size: 1rem;
+            color: var(--neon-magenta);
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .credits-card {
+            background: rgba(18, 18, 26, 0.95);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            animation: cardSlideIn 0.8s ease-out;
+        }
+
+        @keyframes cardSlideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .credits-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--neon-magenta);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .credit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--neon-cyan);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .credit-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+            transition: width 0.5s ease;
+        }
+
+        .credit-item:hover::after {
+            width: 100%;
+        }
+
+        .credit-item:hover {
+            border-left-color: var(--neon-magenta);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .credit-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-cyan);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .credit-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .credit-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            margin-bottom: 3px;
+        }
+
+        .credit-id {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--neon-cyan);
+        }
+
+        .checkbox-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .splash-button {
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 2px solid var(--neon-cyan);
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--neon-cyan);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .splash-button:hover {
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .splash-button.secondary {
+            border-color: var(--neon-magenta);
+            color: var(--neon-magenta);
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        .splash-button.secondary:hover {
+            background: rgba(255, 0, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .countdown-text {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Credits Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-container {
+            background: var(--panel-bg);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 8px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), transparent);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            letter-spacing: 3px;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 85, 0.2);
+            border: 1px solid #ff0055;
+            border-radius: 4px;
+            color: #ff0055;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 0, 85, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .modal-content {
+            padding: 30px;
+        }
+
+        .project-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid var(--neon-magenta);
+            border-radius: 4px;
+        }
+
+        .project-info h3 {
+            color: var(--neon-magenta);
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .splash-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .credits-card {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .splash-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="splash-container">
+        <h1 class="splash-title">ARENA LOGS</h1>
+        <p class="splash-subtitle">// CLASSIFIED TOURNAMENT DATABASE //</p>
+
+        <div class="credits-card">
+            <h2 class="credits-title">DEVELOPMENT TEAM</h2>
+            
+            <div class="credit-item">
+                <div class="credit-avatar">YK</div>
+                <div class="credit-info">
+                    <div class="credit-name">Yogesh Kumar</div>
+                    <div class="credit-id">2427030798</div>
+                </div>
+            </div>
+
+            <div class="credit-item">
+                <div class="credit-avatar">HM</div>
+                <div class="credit-info">
+                    <div class="credit-name">Hemant Mahala</div>
+                    <div class="credit-id">2427030803</div>
+                </div>
+            </div>
+
+            <div class="credit-item">
+                <div class="credit-avatar">YS</div>
+                <div class="credit-info">
+                    <div class="credit-name">Yash Singh</div>
+                    <div class="credit-id">2427030760</div>
+                </div>
+            </div>
+
+            <div class="credit-item">
+                <div class="credit-avatar">PP</div>
+                <div class="credit-info">
+                    <div class="credit-name">Priyanshu Patro</div>
+                    <div class="credit-id">2427030735</div>
+                </div>
+            </div>
+        </div>
+
+        <label class="checkbox-container">
+            <input type="checkbox" id="dontShowAgain">
+            <span class="checkbox-label">Don't show this again</span>
+        </label>
+
+        <div class="button-group">
+            <button class="splash-button" id="enterSite">ENTER SITE</button>
+            <button class="splash-button secondary" id="showCredits">CREDITS & TEAM</button>
+        </div>
+
+        <p class="countdown-text" id="countdownText">Auto-redirecting in <span id="countdown">10</span> seconds...</p>
+    </div>
+
+    <!-- Credits Modal -->
+    <div class="modal-overlay" id="creditsModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">PROJECT INFORMATION</h2>
+                <button class="modal-close" id="closeModal">✕</button>
+            </div>
+            <div class="modal-content">
+                <div class="project-info">
+                    <h3>About Arena Logs</h3>
+                    <p>Arena Logs is a fully functional cyberpunk tournament dashboard designed for tracking esports matches, team statistics, and replay analysis. Built with modern web technologies, it features real-time data visualization, interactive video playback, and comprehensive match analytics.</p>
+                </div>
+
+                <div class="project-info">
+                    <h3>Technologies Used</h3>
+                    <p>HTML5, CSS3, JavaScript (ES6+), Web Audio API, LocalStorage API, JSON data structures, and responsive design principles.</p>
+                </div>
+
+                <div class="project-info">
+                    <h3>Features</h3>
+                    <p>• Multi-page routing system<br>
+                    • Video replay system with controls<br>
+                    • Live countdown timers<br>
+                    • Team statistics and rankings<br>
+                    • Match history and analytics<br>
+                    • Admin panel for data management<br>
+                    • Ambient sound system<br>
+                    • Responsive mobile design</p>
+                </div>
+
+                <div class="credits-card">
+                    <h2 class="credits-title">DEVELOPMENT TEAM</h2>
+                    
+                    <div class="credit-item">
+                        <div class="credit-avatar">YK</div>
+                        <div class="credit-info">
+                            <div class="credit-name">Yogesh Kumar</div>
+                            <div class="credit-id">2427030798</div>
+                        </div>
+                    </div>
+
+                    <div class="credit-item">
+                        <div class="credit-avatar">HM</div>
+                        <div class="credit-info">
+                            <div class="credit-name">Hemant Mahala</div>
+                            <div class="credit-id">2427030803</div>
+                        </div>
+                    </div>
+
+                    <div class="credit-item">
+                        <div class="credit-avatar">YS</div>
+                        <div class="credit-info">
+                            <div class="credit-name">Yash Singh</div>
+                            <div class="credit-id">2427030760</div>
+                        </div>
+                    </div>
+
+                    <div class="credit-item">
+                        <div class="credit-avatar">PP</div>
+                        <div class="credit-info">
+                            <div class="credit-name">Priyanshu Patro</div>
+                            <div class="credit-id">2427030735</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user has opted out of splash screen
+        if (localStorage.getItem('skipSplash') === 'true') {
+            window.location.href = 'index.html';
+        }
+
+        // Countdown timer
+        let countdown = 10;
+        const countdownElement = document.getElementById('countdown');
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                enterSite();
+            }
+        }, 1000);
+
+        // Enter site button
+        document.getElementById('enterSite').addEventListener('click', () => {
+            clearInterval(countdownInterval);
+            enterSite();
+        });
+
+        function enterSite() {
+            const dontShowAgain = document.getElementById('dontShowAgain').checked;
+            if (dontShowAgain) {
+                localStorage.setItem('skipSplash', 'true');
+            }
+            // Add fade out animation
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500);
+        }
+
+        // Credits modal
+        const creditsModal = document.getElementById('creditsModal');
+        document.getElementById('showCredits').addEventListener('click', () => {
+            clearInterval(countdownInterval);
+            creditsModal.classList.add('active');
+        });
+
+        document.getElementById('closeModal').addEventListener('click', () => {
+            creditsModal.classList.remove('active');
+            // Restart countdown
+            countdown = 10;
+            const newInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                if (countdown <= 0) {
+                    clearInterval(newInterval);
+                    enterSite();
+                }
+            }, 1000);
+        });
+
+        creditsModal.addEventListener('click', (e) => {
+            if (e.target === creditsModal) {
+                document.getElementById('closeModal').click();
+            }
+        });
+    </script>
+</body>
+</html>
